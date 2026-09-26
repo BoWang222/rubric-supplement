@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rubric-mmpo-core"
+version = "0.1.0"
+description = "Core supplementary code for rubric sensitivity and robust MMPO"
+requires-python = ">=3.11,<3.13"
+dependencies = ["torch==2.5.1", "numpy==1.26.4", "scipy==1.15.3"]
+
+[project.optional-dependencies]
+models = [
+  "transformers==4.52.4", "tokenizers==0.21.4",
+  "huggingface-hub==0.33.4", "safetensors==0.5.3", "accelerate==1.8.1",
+]
+test = ["pytest==8.4.1"]
+
+[project.scripts]
+rubric-demo = "rubric_core.demo:main"
+rubric-compute-s = "rubric_core.compute_s:main"
+rubric-probe = "rubric_core.calibrate:probe_main"
+rubric-score = "rubric_core.calibrate:score_main"
+rubric-train-mmpo = "rubric_core.train:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

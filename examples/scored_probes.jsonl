@@ -1,0 +1,2 @@
+{"context_id":"toy-math","response_distances":[0.001,0.002,0.003,0.004],"base_scores":[[0.1,0.1],[0.1,0.1],[0.1,0.1],[0.1,0.1]],"perturbed_scores":[[0.2,0.1],[0.4,0.1],[0.3,0.1],[0.5,0.1]]}
+{"context_id":"toy-color","response_distances":[0.001,0.002,0.003,0.004],"rubric_distances":[0.4,0.3,0.2,0.1]}

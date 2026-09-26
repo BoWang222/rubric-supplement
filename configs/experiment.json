@@ -1,0 +1,49 @@
+{
+  "description": "Frozen algorithm settings from the experimental implementation",
+  "probe_model": "Qwen/Qwen3-8B",
+  "probe_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "scorer_model": "OpenRubrics/RubricARROW-8B-Judge",
+  "scorer_revision": "a76e107c09ee6d599c51bddc1d799e834bdc5064",
+  "probe": {
+    "final_transformer_blocks": 2,
+    "include_final_rmsnorm": true,
+    "responses_m": 16,
+    "max_directions": 8,
+    "min_directions": 4,
+    "relative_rank_threshold": 1e-6,
+    "paired_generations_r": 1,
+    "rank_retries": 1,
+    "response_temperature": 2.5,
+    "response_top_p": 1.0,
+    "response_max_new_tokens": 128,
+    "rubricbench_epsilon": 3e-5,
+    "rubricbench_response_tie_floor": 1e-8,
+    "rubric_tie_floor": 0.7070668974154677,
+    "s_floor": 0.05
+  },
+  "mmpo": {
+    "beta": 0.01,
+    "gamma": 2.2,
+    "probability_clip": 1e-6,
+    "label_kl_normalizer": "-log(1e-6)",
+    "w1_binary_ground_cost": 1,
+    "dual_initial_eta": 1.0,
+    "dual_learning_rate": 0.01,
+    "rho": "select on held-out validation; command examples use 0.02 for illustration"
+  },
+  "production_training": {
+    "precision": "bf16",
+    "effective_batch_size": 64,
+    "epochs": 1,
+    "max_prompt_tokens": 1024,
+    "max_completion_tokens": 1024,
+    "completion_logp_reduction": "sum including EOS",
+    "learning_rate_grid": [5e-7, 1e-6],
+    "weight_decay": 0.0,
+    "warmup_ratio": 0.3,
+    "scheduler": "cosine",
+    "max_grad_norm": 1.0,
+    "attention": "flash_attention_2",
+    "training_driver": "production uses FSDP and cached reference logps; standalone driver is single-device"
+  }
+}

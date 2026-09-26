@@ -1,0 +1,6 @@
+# Separate environment: vLLM 0.8.5 installs its own compatible PyTorch stack.
+vllm==0.8.5.post1
+transformers==4.52.4
+tokenizers==0.21.4
+huggingface-hub==0.33.4
+safetensors==0.5.3
