@@ -1,7 +1,7 @@
-# Rubric-aware MMPO: supplementary core implementation
+# Rubric-aware: supplementary core implementation
 
 This repository contains the experimental algorithms for constructing the
-context-dependent scale **s** and optimizing **MMPO**, including the KL and
+context-dependent scale **s** and training process, including the KL and
 binary Wasserstein variants. It includes small standalone runners, pinned
 dependencies, synthetic examples, and tests.
 
@@ -36,8 +36,3 @@ python -m rubric_core.toy --backend kl --output outputs/toy-kl
 # Check numerical identities, robust solvers, and actual model updates
 python -m pytest
 ```
-
-All files in `examples/` are **synthetic illustrations, not experimental data**.
-The zero tie floors and toy learning rate are only for these demonstrations.
-Training outputs must use a new or empty directory. The toy command also accepts
-`--backend none` and `--backend wasserstein_w1`.
